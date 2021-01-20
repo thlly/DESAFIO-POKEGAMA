@@ -1,43 +1,23 @@
 import './App.css';
-import pokeapi from './pokeapi';
+import Routes from './routes';
+
 import { Component } from 'react';
+import { render } from 'react-dom';
 
 
 
 
-class App extends Component{
 
-  state={
-    pokemons:[],
-  }
-  async componentDidMount(){
-    const response =await pokeapi.get('');
+function App(){
 
-    
-    this.setState({pokemons:response.data});
-  }
-
-  render(){
-  const {pokemons}=this.state;
+  return(
+   <Routes/>  
+   );
 
  
-    return(
-      <div>
-        <h1>Listar pokemons</h1>
-        {console.log(pokemons)}
-        
-        
-      </div>
-    )
 
-  }
-  
+ 
 }
-
-
-
-
-
 
 
 
