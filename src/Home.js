@@ -44,6 +44,7 @@ console.log(a);
         {a.map(pokemon => (
           <li key={pokemon.id}>
                 <h1>{pokemon.name}</h1>
+                <h3>{pokemon.url}</h3>
 
             </li>
         ))}
