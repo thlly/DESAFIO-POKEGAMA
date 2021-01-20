@@ -41,7 +41,15 @@ console.log(a);
     return(
       <div>
         <h1>Listar pokemons</h1>
-  
+        {a.map(pokemon => (
+          <li key={pokemon.id}>
+                <h1>{pokemon.name}</h1>
+
+            </li>
+        ))}
+
+         
+        
         
       </div>
     )
