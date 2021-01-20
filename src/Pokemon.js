@@ -8,18 +8,15 @@ var PokemonObject = function(id,name,url,urlPhoto){
 
     }
     const listpokemons =[];
-    let idpic=0;
+    let idpic=parseInt(0);
  const Pokemon=  function (pokemons){
      var id=parseInt(0);
         for(var position in pokemons){
-             id +=parseInt(position);
-             idpic=parseInt(position);
-             if(idpic===0){
-               idpic+=1;
-             }
-             let imgUrl='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/'+idpic+'.png';
+             id +=parseInt(position)+1;
              
-               listpokemons[position]=new PokemonObject(1+id,pokemons[position].name,pokemons[position].url,imgUrl);
+             let imgUrl='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/'+id+'.png';
+             
+               listpokemons[position]=new PokemonObject(id,pokemons[position].name,pokemons[position].url,imgUrl);
                id=0;
                idpic=0;
                console.log(listpokemons[position]);
