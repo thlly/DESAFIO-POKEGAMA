@@ -16,11 +16,6 @@ class Home extends Component{
     const response =await pokeapi.get('');
     
 
-    /*const allpokemons = response.data.results;
-    for(var position in allpokemons){
-        console.log(allpokemons[position].name);
-    }*/
-    //console.log(allpokemons);
     this.setState({pokemons:response.data.results});
   }
 
@@ -28,31 +23,37 @@ class Home extends Component{
   const {pokemons}=this.state;
 
 
-//Pokemon(pokemons);
+
 
 
 let a = Pokemon(pokemons);
 console.log(a);
- 
+let id;
 
 
 
 
     return(
+     
       <div>
-        <h1>Listar pokemons</h1>
-        {a.map(pokemon => (
-          <li key={pokemon.id}>
-                <h1>{pokemon.name}</h1>
-                <h3>{pokemon.url}</h3>
+      <h1>Listar pokemons</h1>
+      {a.map(pokemon => (
+        <li key={pokemon.id}>
+              <h1>{pokemon.name}</h1>
+              <h3>{pokemon.url}</h3>
+       
 
-            </li>
-        ))}
+              <img src={pokemon.urlPhoto}/>
+              
+              
 
-         
-        
-        
-      </div>
+          </li>
+      ))}
+
+       
+      
+      
+    </div>
     )
 
   }
