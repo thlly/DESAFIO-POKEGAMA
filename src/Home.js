@@ -1,6 +1,6 @@
     import React,{useState,useEffect} from 'react';
     import getAllPokemon,{getPokemon} from './pokeapi';
-    import Card from './componentes/Card';
+    import Card from './componentes/Card/Card';
 
 
       function Home(){
