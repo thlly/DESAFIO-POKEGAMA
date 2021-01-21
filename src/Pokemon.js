@@ -8,13 +8,14 @@
 
       
 
-      let PokemonObject = function(id,name,url,urlPhoto,type){
+      let PokemonObject = function(id,name,url,urlPhoto,type,abilities){
           this.id=id;
           this.name=name;
           this.url=url;
           this.urlPhoto=urlPhoto;
           this.type=type;
           this.state=true;
+          this.abilities=abilities;
 
           };
 
