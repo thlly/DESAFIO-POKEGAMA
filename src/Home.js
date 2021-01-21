@@ -1,10 +1,11 @@
-  import {useHistory} from 'react-router-dom';
   import './App.css';
   import { Component } from 'react';
   import pokeapi from './pokeapi';
   import Pokemon from './Pokemon'
   import Pokemons from './pokemons';
+  import axios from 'axios';
 
+  
 
 
   class Home extends Component{
@@ -13,23 +14,30 @@
       pokemons:[],
     }
     async componentDidMount(){
-      const response =await pokeapi.get('');
+      const response =await pokeapi.get('/');
+     
       
 
-      this.setState({pokemons:response.data.results});
+      this.setState({pokemons:response.data});
+     
     }
+
+  
 
     render(){
     const {pokemons}=this.state;
 
 
+  
 
 
+  let a = Pokemon(pokemons.results);
+  
+  
 
-  let a = Pokemon(pokemons);
-  console.log(a);
-  let id;
+ 
 
+           
 
 
 
@@ -41,6 +49,7 @@
           <li key={pokemon.id}>
                 <h1>{pokemon.name}</h1>
                 <h3>{pokemon.url}</h3>
+                
                 <img src={pokemon.urlPhoto}/>
                 
                 
