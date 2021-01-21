@@ -1,95 +1,60 @@
-import './App.css';
-  import { Component } from 'react';
-  import pokeapi from './pokeapi';
-  import Pokemon from './Pokemon'
-  import Pokemons from './pokemons';
-  import axios from 'axios';
-
-  
+    import React,{useState,useEffect} from 'react';
+    import getAllPokemon,{getPokemon} from './pokeapi';
+    import Card from './componentes/Card';
 
 
-
-
-  class Home extends Component{
-
-    state={
-      pokemons:[],
-      pokemon:[]
-    }
-   
-
-    async componentDidMount(){
-      const response =await pokeapi.get('/');
-     
+      function Home(){
+        const [pokemonData,setPokemonData]=useState([]);
+        const [nextUrl,setNextUrl] =useState('');
+        const [prevUrl,setPrevUrl]=useState('');
+        const[loading,setLoading]=useState(true);
+        const initialUrl='https://pokeapi.co/api/v2/pokemon/';
+    useEffect(()=>{
+      async function fetchData(){
+        let response = await getAllPokemon(initialUrl);
       
+        setNextUrl(response.next);
+        setPrevUrl(response.previous);
+        let pokemon= await loadingPokemon(response.results);
+      // console.log(pokemon);
+        setLoading(false);
 
-      this.setState({pokemons:response.data});
-     const getPokemonInfo = async id =>{
-        const url= 
-        await `https://pokeapi.co/api/v2/pokemon/${id}`;
-        const res = await fetch(url);
-        const pokemon = await res.json();
-        //console.log(pokemon);
-        this.setState({pokemon:pokemon});
-    
-    
       }
-      getPokemonInfo(1);
-    }
 
-    
+      fetchData();
 
+    },[]);
+        const loadingPokemon= async (data)=>{
 
-    render(){
-    const {pokemons}=this.state;
-    const {pokemon}=this.state;
-    
-  console.log(pokemon);
- 
-
-
-  
-
-
-  let a = Pokemon(pokemons.results);
-  
-  
-
- 
-
-           
-
-
-
-      return(
-      
+            let _pokemonData = await Promise.all(data.map(async pokemon =>{
+            let pokemonRecord = await getPokemon(pokemon.url);
+            return  pokemonRecord
+          }))
+              setPokemonData(_pokemonData);
+        };
+        console.log(pokemonData);
+        return(
+        
         <div>
-        <h1>Listar pokemons</h1>
-        {a.map(pokemon => (
-          <li key={pokemon.id}>
-                <h1>{pokemon.name}</h1>
-                <h3>{pokemon.url}</h3>
-                
-                <img src={pokemon.urlPhoto}/>
-                
-                
-
-            </li>
-        ))}
-
-        
-        
-        
-      </div>
-      )
-
-    }
-    
-  }
+          
+          {loading ?<h1>Loading..</h1>:(
+          <>
+          <div className="grid-container">
+            
+            {pokemonData.map((pokemon,i)=>{
+              return <Card key={i} pokemon={pokemon}/>
+            })}
+          </div>
+          </>
+          
+          )}
+          
+          </div>);
+      
+          
+      }
 
 
 
 
-
-
-  export default Home;
+        export default Home;
