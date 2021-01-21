@@ -39,11 +39,14 @@
           
           {loading ?<h1>Loading..</h1>:(
           <>
+          
           <div className="grid-container">
-            
+        
             {pokemonData.map((pokemon,i)=>{
+             
               return <Card key={i} pokemon={pokemon}/>
             })}
+  
           </div>
           </>
           
