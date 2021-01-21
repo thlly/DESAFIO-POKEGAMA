@@ -65,21 +65,6 @@ function soltarPokemon(pokemon) {
 
   
 }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
