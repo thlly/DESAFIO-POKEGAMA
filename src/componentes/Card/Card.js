@@ -3,33 +3,37 @@
     import PokemonCapturado from '../../Pokemon';
     let getMypokemonOnStorage =[];
 
-    if(localStorage.getItem('pokemon')!=null){
-        getMypokemonOnStorage.push(localStorage.getItem('pokemon'));
-        localStorage.clear();
+   
 
-    }
 
-    localStorage.clear();
+  
+
+   
     function Card({pokemon}){
         pokemon.available=true;
-
-            
+       
+    
 
     
 
     const click = function getpokes() {
+        if(JSON.parse(localStorage.getItem('pokemon'))==null){
+            localStorage.setItem('pokemon',JSON.stringify(pokemon));
+    
+            getMypokemonOnStorage.push(JSON.parse(localStorage.getItem('pokemon')));
+        }else{
+           // localStorage.setItem('pokemon',JSON.stringify(pokemon));
 
+            //console.log('localStorage.getItem('pokemon')');
+    
+        }   
+
+      
+  
 
     
         if(pokemon.available===true){
-            PokemonCapturado.available=false;
-            PokemonCapturado.push(pokemon);
-
-            
-                localStorage.setItem('pokemon',JSON.stringify(PokemonCapturado));
-                getMypokemonOnStorage.push(JSON.parse(localStorage.getItem('pokemon')));
-
-                console.log(JSON.parse(localStorage.getItem('pokemon')));
+         
     
                 
         
