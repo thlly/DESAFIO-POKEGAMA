@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Card({pokemon}){
+
     return(
+        
         <div className="Card">
+    
              <hr/>
+             <h1> {pokemon.id}</h1>  
             <div className="Card_img">
              <img src={pokemon.sprites.front_default} alt=""></img>
             </div>
             <div className="Card_name">
-                
+           
                <h1> {pokemon.name}</h1> 
             </div>
             <div className="Card_types">
@@ -43,7 +47,7 @@ function Card({pokemon}){
                 </div>
               
             </div>
-            <button>Capturar</button>
+           
         </div>
     )
 }
