@@ -12,7 +12,7 @@ function Card({pokemon}){
       PokemonCapturado.available=false;
     PokemonCapturado.push(pokemon);
          console.log(PokemonCapturado);
-         console.log(pokemon);
+         //console.log(pokemon);
         
     }
 
