@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Card from './componentes/Card/Card';
+import { Route } from 'react-router-dom';
 
 
 
