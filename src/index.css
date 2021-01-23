@@ -6,12 +6,40 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 20px;
-
+  background-color: blanchedalmond;
+  
 
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+button{
+  background-color: rgb(207, 193, 148);
+  border-radius: 20px;
+  padding: 20px;
+  
+}
+
+.btn{
+  padding-top: 10px;
+}
+
+.grid-container{
+  padding: 10px;
+}
+
+.btn{
+  padding-top: 10px;
+  padding-bottom: 20px;
+
+
+}
+
+.button-pagination{
+position: relative;
+
+
 }
 

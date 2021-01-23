@@ -53,7 +53,7 @@
                     
                         <div className="Card" key={pokemon.id}>
                             <hr/>
-                    <button id={pokemon.id}  onClick={click}>Capturar {pokemon.id} </button>
+                    <button  id={pokemon.id}  onClick={click}>Capturar {pokemon.id} </button>
                             
                             <h1> {pokemon.id}</h1>  
                             <div className="Card_img">

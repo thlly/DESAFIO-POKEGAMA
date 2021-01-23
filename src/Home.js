@@ -78,12 +78,13 @@
 
           <div className="btn">
 
-            <button onClick={prev}>Anterior</button>
-            <button onClick={next}>Próximo</button>
+            <button className="button-pagination" onClick={prev}>Anterior</button>
+            <button className="button-pagination" onClick={next}>Próximo</button>
 
           </div>
+ 
               
-    <Link to="/meuspokemon"><button>Meus Pokemon</button></Link>
+    <Link to="/meuspokemon"><button className="meus-pokemon">Meus Pokemon</button></Link>
               <div className="grid-container">
               
             {pokemonData.map((pokemon,i)=>{
