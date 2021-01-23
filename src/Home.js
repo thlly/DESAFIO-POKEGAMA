@@ -2,13 +2,13 @@
         import getAllPokemon,{getPokemon} from './pokeapi';
         import Card from './componentes/Card/Card';
         import{Link, NavLink} from 'react-router-dom';
+        import ReactDOM from 'react-dom';
 
 
 
           function Home(){
         
-
-        
+            
             const [pokemonData,setPokemonData]=useState([]);
             const [nextUrl,setNextUrl] =useState('');
             const [prevUrl,setPrevUrl]=useState('');
@@ -57,22 +57,38 @@
                 return  pokemonRecord
               }))
 
-              _pokemonData.avaliable=true;
+            _pokemonData.avaliable=true;
                   setPokemonData(_pokemonData);
-          
 
                               
 
             };
-            
-        
+
+        const[seachTerm, setSeachterm]=useState("");
+        const [seachResults,setSeachResults]= useState([]);
+        //testando pesquisa
+        let nomes = ["kelly",'ANA',"NATALY"]
+
+        const handleChange = event => {
+          setSeachterm(event.target.value);
+          //console.log(event.target.value);
+        };
+
+        useState(()=>{
+          const results = nomes.filter(pokemon=>
+            pokemon.toLowerCase().includes(seachTerm)
+            );
+            setSeachResults(results);
+            console.log(seachResults);
+        },[seachTerm]);
         
             return(
-            
           
             <div>
-                    
-
+            <input type="text" placeholder="Pesquisa" value={seachTerm} onChange={handleChange} />
+       {seachResults.map(nomes=>(
+         <li>{nomes}</li>
+       ))}
               {loading ?<img src="\_charmeleon.gif"></img>:(
               <>
 

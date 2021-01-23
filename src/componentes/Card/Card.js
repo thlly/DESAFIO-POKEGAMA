@@ -32,35 +32,19 @@
 
 
 
-
-
-                
-
-            
-
-                
-               
-                
-
-            
-                    
-                    
-
-
-
                     return(
                         
                     
                         <div className="Card" key={pokemon.id}>
                       
                             
-                            <h1> {pokemon.id}</h1>  
+                            <h2 className="id-pokemon"> {pokemon.id}</h2>  
                             <div className="Card_img">
                             <img src={pokemon.sprites.front_default} alt=""></img>
                             </div>
                             <div className="Card_name">
                         
-                            <h1> {pokemon.name}</h1> 
+                            <h1 className="pokemon-name"> {pokemon.name}</h1> 
                             </div>
                             <div className="Card_types">
                             <h1>
@@ -96,7 +80,7 @@
                             </div>
                           
                     <button  id={pokemon.id}  onClick={click}>Capturar </button>
-                    <hr/>
+                   
                         
                         </div>
                     )

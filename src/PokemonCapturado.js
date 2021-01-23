@@ -12,7 +12,7 @@ export default function MeusPokemon(){
     return(
 
         <>
-        <h1>Meus Pokemon</h1>
+        <h2>Meus Pokemon</h2>
         <Link to="/"><button>Todos Pokemon</button></Link>
 
         <div className="grid-container">
