@@ -13,7 +13,7 @@
 
 
                 const click = function getpokes() {
-        if(JSON.parse(localStorage.getItem('pokemon'))==null){
+        if(getMypokemonOnStorage==null){
 
                     localStorage.setItem('pokemon',JSON.stringify(pokemon));
                     getMypokemonOnStorage.push(JSON.parse(localStorage.getItem('pokemon')));
