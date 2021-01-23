@@ -52,8 +52,7 @@
                         
                     
                         <div className="Card" key={pokemon.id}>
-                            <hr/>
-                    <button  id={pokemon.id}  onClick={click}>Capturar </button>
+                      
                             
                             <h1> {pokemon.id}</h1>  
                             <div className="Card_img">
@@ -95,6 +94,9 @@
                                 </div>
                             
                             </div>
+                          
+                    <button  id={pokemon.id}  onClick={click}>Capturar </button>
+                    <hr/>
                         
                         </div>
                     )
