@@ -28,6 +28,7 @@ button{
 
 .grid-container{
   padding: 10px;
+  border: 2px;
 }
 
 .btn{
