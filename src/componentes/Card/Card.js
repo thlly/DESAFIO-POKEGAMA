@@ -1,10 +1,9 @@
         import { func } from 'prop-types';
         import React, { useState } from 'react';
-        import PokemonCapturado from '../../Pokemon';
+        //import Button from './Button';
         let getMypokemonOnStorage =[];
 
     
-//getMypokemonOnStorage.push(JSON.parse(localStorage.getItem('pokemon')));
     
 
     
@@ -38,7 +37,10 @@
                     getMypokemonOnStorage.push(JSON.parse(localStorage.getItem('pokemon')));
                     localStorage.setItem('pokemon',JSON.stringify(getMypokemonOnStorage));
                 }
-            
+                localStorage.setItem('pokemon',JSON.stringify(getMypokemonOnStorage));
+
+            }else if(pokemon.available===false){
+
             }
             
             }
@@ -47,8 +49,7 @@
 
             return(
                 
-
-                
+               
                 <div className="Card" key={pokemon.id}>
                     <hr/>
             <button id={pokemon.id} onClick={click}>Capturar {pokemon.id} </button>
@@ -58,7 +59,7 @@
                     <img src={pokemon.sprites.front_default} alt=""></img>
                     </div>
                     <div className="Card_name">
-                
+                 
                     <h1> {pokemon.name}</h1> 
                     </div>
                     <div className="Card_types">
