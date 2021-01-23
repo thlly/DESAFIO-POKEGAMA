@@ -7,7 +7,7 @@
 
         function Home(){
       
-    
+
       
           const [pokemonData,setPokemonData]=useState([]);
           const [nextUrl,setNextUrl] =useState('');
@@ -67,11 +67,13 @@
           
         
           <div>
-          
-            
+                   
+
             {loading ?<img src="\_charmeleon.gif"></img>:(
             <>
+
         <div className="btn">
+
           <button onClick={prev}>Anterior</button>
           <button onClick={next}>Próximo</button>
 
@@ -79,7 +81,7 @@
             
     
             <div className="grid-container">
-          
+
           {pokemonData.map((pokemon,i)=>{
           
             return  <Card key={i} pokemon={pokemon}/>
