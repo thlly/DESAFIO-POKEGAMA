@@ -2,14 +2,18 @@
         import getAllPokemon,{getPokemon} from './pokeapi';
         import Card from './componentes/Card/Card';
         import{Link, NavLink} from 'react-router-dom';
-        import ReactDOM from 'react-dom';
+        import ReactDOM, { render } from 'react-dom';
 
 
 
           function Home(){
+            const [seachterm,setSeachTerm]=useState("");
+
+
         
             
             const [pokemonData,setPokemonData]=useState([]);
+
             const [nextUrl,setNextUrl] =useState('');
             const [prevUrl,setPrevUrl]=useState('');
             const[loading,setLoading]=useState(true);
@@ -64,31 +68,38 @@
 
             };
 
-        const[seachTerm, setSeachterm]=useState("");
-        const [seachResults,setSeachResults]= useState([]);
-        //testando pesquisa
-        let nomes = ["kelly",'ANA',"NATALY"]
 
-        const handleChange = event => {
-          setSeachterm(event.target.value);
-          //console.log(event.target.value);
-        };
+       
 
-        useState(()=>{
-          const results = nomes.filter(pokemon=>
-            pokemon.toLowerCase().includes(seachTerm)
-            );
-            setSeachResults(results);
-            console.log(seachResults);
-        },[seachTerm]);
-        
+
+
             return(
+
           
             <div>
-            <input type="text" placeholder="Pesquisa" value={seachTerm} onChange={handleChange} />
-       {seachResults.map(nomes=>(
-         <li>{nomes}</li>
-       ))}
+              
+                           <div className="seach"> 
+                           <input type="text"
+                            placeholder="Pesquisar Pokemon"
+                            onChange={event=>{
+                              setSeachTerm(event.target.value)
+                              }}
+                              />
+                           {pokemonData.filter((pokemon)=>{
+                             if(seachterm==""){
+                               return pokemon;
+                             }else if(pokemon.name.toLowerCase().includes(seachterm.toLowerCase())){
+                               return pokemon;
+                             }
+                           }).map((pokemon,key)=>{
+                        
+                         
+                               return  <Card key={key} pokemon={pokemon}/>
+                          
+                        
+                           })}
+                           </div>
+      
               {loading ?<img src="\_charmeleon.gif"></img>:(
               <>
 
@@ -106,7 +117,7 @@
             {pokemonData.map((pokemon,i)=>{
       
                   pokemon.avaliable=true;
-                return  <Card key={i} pokemon={pokemon}/>
+             
 
             
               
