@@ -1,13 +1,14 @@
                 import { func } from 'prop-types';
                 import React, { useState } from 'react';
                 let getMypokemonOnStorage =[];
-                let pokemonPush =[];
+                
 
 
 
 
             
                 function Card({pokemon}){
+                  //  getMypokemonOnStorage.push(JSON.parse(localStorage.getItem('pokemon')))
 
                 
 
@@ -25,6 +26,7 @@
                     localStorage.setItem('pokemon',JSON.stringify(getMypokemonOnStorage));
                 }
                 localStorage.setItem('pokemon',JSON.stringify(getMypokemonOnStorage));
+                alert('Pokemon Capturado!');
 
             }
                        

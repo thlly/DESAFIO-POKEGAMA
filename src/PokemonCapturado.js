@@ -16,6 +16,11 @@ export default function MeusPokemon(){
 
         <>
         <h2>Meus Pokemon</h2>
+        
+        <Link to="/"><button>Todos Pokemon</button></Link>
+
+        <div className="grid-container">
+          
         <div className="seach"> 
                            <input type="text"
                             placeholder="Pesquisar Pokemon"
@@ -25,10 +30,6 @@ export default function MeusPokemon(){
                               />
                           
                            </div>
-        
-        <Link to="/"><button>Todos Pokemon</button></Link>
-
-        <div className="grid-container">
 
         {meusPokemon.filter((pokemon)=>{
                              if(seachterm==""){
