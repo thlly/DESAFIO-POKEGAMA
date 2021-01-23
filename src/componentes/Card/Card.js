@@ -8,7 +8,6 @@
 
             
                 function Card({pokemon}){
-                  //  getMypokemonOnStorage.push(JSON.parse(localStorage.getItem('pokemon')))
 
                 
 
