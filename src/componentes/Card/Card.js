@@ -1,56 +1,34 @@
                 import { func } from 'prop-types';
                 import React, { useState } from 'react';
                 let getMypokemonOnStorage =[];
+                let pokemonPush =[];
 
-            
+
 
 
             
                 function Card({pokemon}){
-                    console.log(pokemon.avaliable);
 
                 
 
 
                 const click = function getpokes() {
-                    localStorage.setItem('abilities',JSON.stringify(pokemon.abilities));
-                    localStorage.setItem('avaliable',JSON.stringify(false));
-                    localStorage.setItem('base_experience',JSON.stringify(pokemon.base_experience));
-                    localStorage.setItem('forms',JSON.stringify(pokemon.forms));
-                    localStorage.setItem('game_indices',JSON.stringify(pokemon.game_indices));
-                    localStorage.setItem('height',JSON.stringify(pokemon.height));
-                    localStorage.setItem('held_items',JSON.stringify(pokemon.held_items));
-                    localStorage.setItem('id',JSON.stringify(pokemon.id));
-                    localStorage.setItem('is_default',JSON.stringify(pokemon.is_default));
-                    localStorage.setItem('location_area_encounters',JSON.stringify(pokemon.location_area_encounters));
-                    localStorage.setItem('moves',JSON.stringify(pokemon.moves));
-                    localStorage.setItem('name',JSON.stringify(pokemon.name));
-                    localStorage.setItem('order',JSON.stringify(pokemon.order));
-                    localStorage.setItem('species',JSON.stringify(pokemon.species));
-                    getMypokemonOnStorage.abilities=JSON.parse(localStorage.getItem('abilities'));
-                    getMypokemonOnStorage.avaliable=false;
-                    getMypokemonOnStorage.base_experience=JSON.parse(localStorage.getItem('abilities'));
-                    getMypokemonOnStorage.forms=JSON.parse(localStorage.getItem('forms'))
+        if(JSON.parse(localStorage.getItem('pokemon'))==null){
 
-                    getMypokemonOnStorage.game_indices=JSON.parse(localStorage.getItem('game_indices'));
-
-                    getMypokemonOnStorage.height=JSON.parse(localStorage.getItem('height'));
-
-                    getMypokemonOnStorage.id=JSON.parse(localStorage.getItem('id'));
-
-                    getMypokemonOnStorage.is_default=JSON.parse(localStorage.getItem('is_default'));
-                    getMypokemonOnStorage.location_area_encounters=JSON.parse(localStorage.getItem('location_area_encounters'));
-                    getMypokemonOnStorage.moves=JSON.parse(localStorage.getItem('moves'));
-                    getMypokemonOnStorage.name=JSON.parse(localStorage.getItem('name'));
-                    getMypokemonOnStorage.order=JSON.parse(localStorage.getItem('species'));
-                   
+                    localStorage.setItem('pokemon',JSON.stringify(pokemon));
+                    getMypokemonOnStorage.push(JSON.parse(localStorage.getItem('pokemon')));
 
 
+                }else{
+                    localStorage.setItem('pokemon',JSON.stringify(pokemon));
+                    getMypokemonOnStorage.push(JSON.parse(localStorage.getItem('pokemon')));
+                    localStorage.setItem('pokemon',JSON.stringify(getMypokemonOnStorage));
+                }
+                localStorage.setItem('pokemon',JSON.stringify(getMypokemonOnStorage));
 
-                    
-                        console.log(getMypokemonOnStorage);
-                        pokemon.avaliable=false;
-                      
+            }
+                       
+        
 
 
 
@@ -66,7 +44,7 @@
 
             
                     
-                    }
+                    
 
 
 
