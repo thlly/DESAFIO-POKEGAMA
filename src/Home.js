@@ -8,11 +8,7 @@
 
           function Home(){
             const [seachterm,setSeachTerm]=useState("");
-
-
-        
-            
-            const [pokemonData,setPokemonData]=useState([]);
+           const [pokemonData,setPokemonData]=useState([]);
 
             const [nextUrl,setNextUrl] =useState('');
             const [prevUrl,setPrevUrl]=useState('');
@@ -85,7 +81,25 @@
                               setSeachTerm(event.target.value)
                               }}
                               />
-                           {pokemonData.filter((pokemon)=>{
+                          
+                           </div>
+      
+              {loading ?<img src="\_charmeleon.gif"></img>:(
+              <>
+
+          <div className="btn">
+
+            <button className="button-pagination" onClick={prev}>Anterior</button>
+            <button className="button-pagination" onClick={next}>Próximo</button>
+
+          </div>
+          <h1>Todos os Pokemon</h1>
+ 
+              
+    <Link to="/meuspokemon"><button className="meus-pokemon">Meus Pokemon</button></Link>
+              <div className="grid-container">
+              
+              {pokemonData.filter((pokemon)=>{
                              if(seachterm==""){
                                return pokemon;
                              }else if(pokemon.name.toLowerCase().includes(seachterm.toLowerCase())){
@@ -98,33 +112,6 @@
                           
                         
                            })}
-                           </div>
-      
-              {loading ?<img src="\_charmeleon.gif"></img>:(
-              <>
-
-          <div className="btn">
-
-            <button className="button-pagination" onClick={prev}>Anterior</button>
-            <button className="button-pagination" onClick={next}>Próximo</button>
-
-          </div>
- 
-              
-    <Link to="/meuspokemon"><button className="meus-pokemon">Meus Pokemon</button></Link>
-              <div className="grid-container">
-              
-            {pokemonData.map((pokemon,i)=>{
-      
-                  pokemon.avaliable=true;
-             
-
-            
-              
-            
-          
-                
-            })}
 
           </div>
 
