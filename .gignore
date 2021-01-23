@@ -33,7 +33,7 @@
 /*.qlog
 # For GitHub Codespaces
 /pythonenv*
-
+/
 # === Rules for artifacts of `./configure` ===
 /icu_config.gypi
 /config.gypi
@@ -127,7 +127,8 @@ tools/*/*.i.tmp
 /deps/uv/docs/src/guide/
 # Ignore dependencies fetched by deps/v8/tools/node/fetch_deps.py
 /deps/.cipd
-
+/.eslintcache
+/.debug.log
 # === Rules for Windows vcbuild.bat ===
 /temp-vcbuild
 
